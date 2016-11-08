@@ -1,0 +1,79 @@
+<html ng-app="myApp">
+  <head>
+	<title>Using Angular</title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<script type="text/javascript" src="angular.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+	<script type="text/javascript" src="jquery.min.js"></script>	
+	<script type="text/javascript" src="bootstrap.js"></script>	
+	<style>
+	  .navbar-default {
+		background-color: #0f00f0;
+		border-color: #030033;
+		color:#FFF;
+	}
+	</style>
+  </head>
+  <body>
+  <div ng-controller="HomeController">					
+	  <header>	
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+				<div class="navbar-header">
+				  <a class="navbar-brand" href="#">Debellate Technologies</a>
+				</div>
+				<ul class="nav navbar-nav pull-right">
+				  <li><a href="#">Home</a></li>
+				  <li><a href="#About">About</a></li>
+				  <li><a href="#Contact">Contact</a></li> 			  
+				</ul>
+			  </div>
+			</nav>
+	  </header>
+	 <br>
+	<div ng-view></div>
+  </div>
+	</body>
+  <script>
+	angular.module("myApp",['ngRoute'])
+	.config(function($routeProvider){
+		$routeProvider.when('/',
+		{
+			templateUrl:'index.html',
+			controller:'HomeController'
+		})
+		.when('/home',
+		{
+			templateUrl:'index.html',
+			controller:'HomeController'
+		})
+		.when('/about',
+		{
+			templateUrl:'about.html',
+			controller:'AboutController'
+		})
+		.when('/contact',
+		{
+			templateUrl:'contact.html',
+			controller:'ContactController'
+		})
+		.otherwise(
+		{
+			templateUrl:'routeNotFound.html',
+			controller:'RouteNotFoundController'
+		});		
+	})
+	.controller("HomeController",function($scope)
+	{
+		$scope.message = "Welcome to Home Page";
+	})
+	.controller('AboutController',function($scope)
+	{
+		$scope.message = "Find More About Debellate Technologies";
+	})
+	.controller("ContactController",function($scope)
+	{
+		$scope.message = "Follow Us For More Details";
+	});
+  </script>
+</html>

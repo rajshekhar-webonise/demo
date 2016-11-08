@@ -1,0 +1,82 @@
+.jumbotrondiv{
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+.navbar-brand {
+ 		font-weight: bold;
+  		font-size: xx-large;
+			}
+.formdiv{
+    margin:auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.capability{
+    margin: auto;
+    width: 50%;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    color:gray;
+    }
+footer {
+    position:relative;
+    bottom:0;
+    width:100%;
+    font-size:small;
+    font-weight: bolder;
+    text-align:center;
+}
+
+.hoverwell:hover {
+    background-color: #52575c;
+    cursor: pointer;
+}
+
+select, textarea {
+    color: #52575c;
+}
+
+.well-title {
+    margin-top: 0px;
+}
+
+.votingWidget {
+    height: 90px;
+    width:50px;
+    padding: 9px;
+    border: solid black 3px;
+}
+
+.votingButton {
+    padding-left: 6px;
+    cursor: pointer;
+}
+
+input{
+    margin:5px;
+}
+ input.ng-pristine {
+                background-color: skyblue;
+            }
+
+            input.ng-dirty.ng-touched {
+                background-color: yellow;
+            }       
+            input.ng-touched {
+                background-color: gray;
+            }       
+
+            input.ng-invalid 
+            {   
+                        color:red;                        
+                        font-size:large;
+                }
+            input.ng-valid
+                 {
+                        color:green;
+                        font-size:large;
+                   }
+
