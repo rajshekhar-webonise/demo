@@ -1,0 +1,25 @@
+<html ng-app="justApp">
+  <head>
+	<title>Using Angular</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="01SharedModule.js"></script>
+  </head>
+  <body>
+	<div ng-controller="JustController">	
+		<h1>Multiplication of 20 and 10 : {{mult}}</h1>
+		<h1>Division of 20 and 10 : {{div}}</h1>
+		<h1>Square of 10 : {{square}}</h1>
+		<h1>SquareRoot of 100 : {{squareRoot}}</h1>
+	</div>
+  </body>
+  <script>
+	angular.module("justApp",['sharedModule'])
+	.controller("JustController",function($scope,myMathService,mySquareService)
+	{
+		$scope.mult = myMathService.getMult(20,10);		
+		$scope.div = myMathService.getDiv(20,10);
+		$scope.square = mySquareService.getSquare(10);
+		$scope.squareRoot = mySquareService.getSquareRoot(100);
+	});
+  </script>
+</html>

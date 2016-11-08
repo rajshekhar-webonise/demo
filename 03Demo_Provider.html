@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+    <script type="text/javascript" src="angular.js"></script>
+    <script src="03SharedModule.js"></script>
+</head>
+
+<body>
+     <div ng-controller="ABCController">
+		<h1>{{orgName}}</h1>
+    </div>
+    <script>
+        angular.module('myApp',['sharedModule'])
+		.config(function(configurableServiceProvider) // param should be same as provider name with appending Provider string at post.
+		{
+			configurableServiceProvider.setName("www.persistent.com");
+		})
+		.controller('ABCController',function($scope,configurableService)
+		{
+			$scope.orgName = configurableService;
+		});
+	</script>
+</body>
+</html>
+
+ 

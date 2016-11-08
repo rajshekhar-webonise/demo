@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+    <script src="angular.js"></script>
+</head>
+ 
+<body>
+    <div ng-controller="JustController">
+        <h1>{{usersOnline}}</h1>
+        <button ng-click="changeNoofUsersOnline()">No of Users Online!</button>
+        <br/>
+        <h1>{{firstName}}</h1>
+        <h1>{{lastName}}</h1>
+        <h1>{{email}}</h1>
+        <button ng-click="changeUserDetails()">User Details!</button>
+    </div>
+      <div ng-controller="ABCController">
+        <h1>{{firstName}}</h1>
+        <h1>{{lastName}}</h1>
+        <h1>{{email}}</h1>
+        <button ng-click="foo()">User Details!</button>
+    </div>
+    <script>
+             angular.module('myApp',[])
+             .value('usersOnline',0)
+             .value('user', {
+                    firstName: 'default',
+                    lastName: '',
+                    email: ''
+                    })    
+            .controller('JustController',function($scope,usersOnline,user)
+            {
+                // value - usersOnline
+                    $scope.usersOnline = usersOnline;
+                    $scope.changeNoofUsersOnline = function()
+                    {
+                        usersOnline++;
+                        $scope.usersOnline = usersOnline;
+                    }
+                // value - user
+                    $scope.firstName = user.firstName;
+                    $scope.lastName = user.lastName;
+                    $scope.email = user.email;
+                    $scope.changeUserDetails = function()
+                    {
+                        user.firstName = 'Abhijeet';
+                        user.lastName = 'Gole';
+                        user.email = 'abhijeet_gole@persistent.com';
+ 
+                        $scope.firstName = user.firstName;
+                        $scope.lastName = user.lastName;
+                        $scope.email = user.email;
+                    }
+            })
+            .controller('ABCController',function($scope,user)
+            {
+                    $scope.foo = function()
+                    {
+                        $scope.firstName = user.firstName;
+                        $scope.lastName = user.lastName;
+                        $scope.email = user.email;
+                    }
+            });
+        </script>
+</body>
+ 
+</html>
+ 

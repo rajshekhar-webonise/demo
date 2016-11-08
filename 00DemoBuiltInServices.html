@@ -1,0 +1,44 @@
+<html ng-app="justApp">
+  <head>
+	<title>Using Angular</title>
+	<script type="text/javascript" src="angular.js"></script>
+  </head>
+  <body>
+	<div ng-controller="JustController">	
+		<h1>Inner Width {{windowInnerWidth}}</h1>
+		<h1>Outer Width {{windowOuterWidth}}</h1>
+		<h1>Outer Height {{windowInnerHeight}}</h1>
+		<h1>Outer Height {{windowOuterHeight}}</h1>
+		<h1>Absolute Url {{url}}</h1>
+		<h1>Host Name {{host}}</h1>
+		<h1>Protocol {{protocol}}</h1>
+		<h1>Port {{port}}</h1>
+		<h1>Title {{title}}</h1>
+		<h1>{{myheader}}</h1>
+		<h1>Clock  {{clock}}</h1>
+	</div>
+  </body>
+  <script>
+	angular.module("justApp",[])
+	.controller("JustController",function($scope,$window,$location,$document,$timeout,$interval)
+	{
+		$scope.windowInnerWidth = $window.innerWidth;
+		$scope.windowOuterWidth = $window.outerWidth;	
+		$scope.windowInnerHeight = $window.innerHeight;
+		$scope.windowOuterHeight = $window.outerHeight;	
+		$scope.url  = $location.absUrl();
+		$scope.protocol = $location.protocol();
+		$scope.host = $location.host();
+		$scope.port = $location.port();
+		$scope.title = $document[0].title;
+		$scope.myheader = "Say Bye After 3 sec";
+		$timeout(function(){
+			$scope.myheader = "Bye..!!";
+		},3000);
+		$scope.clock = new Date().toLocaleTimeString();
+		$interval(function(){
+			$scope.clock = new Date().toLocaleTimeString();
+		},1000);
+	});
+  </script>
+</html>
